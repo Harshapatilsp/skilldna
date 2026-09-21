@@ -7,7 +7,6 @@ SkillDNA does not simply create skills. It discovers which workflows are worth t
 - **Version:** 0.1.2
 - **Platform:** VS Code 1.103+ · Windows (ARM64 verified)
 - **Runtime:** Node.js 22.12+ / current LTS
-- **License:** All rights reserved (see [License](#license))
 
 ---
 
@@ -139,7 +138,7 @@ Design notes and threat model: [`docs/architecture.md`](docs/architecture.md) ·
 
 ## Roadmap
 
-Bring the same consent-first workflow discovery to every surface Copilot lives on — Microsoft 365 Copilot (Word / Excel / Outlook / Teams), GitHub Copilot Chat on GitHub.com, Visual Studio, JetBrains IDEs, Copilot in Edge, Copilot in Windows, and Azure AI Foundry / Copilot Studio agents. Each platform gets its own adapter behind the same core mining and generation pipeline, plus portable export formats (Markdown+YAML, MCP tool manifests, Foundry agent definitions) so a workflow discovered once can ship anywhere. Also on deck: official Copilot adapters when available, advanced process mining, personal cross-workspace skills, anonymized team aggregation, enterprise knowledge graphs, skill versioning and effectiveness tracking, approval governance, Copilot SDK, and permissioned MCP integration. Full plan: [`docs/roadmap.md`](docs/roadmap.md).
+Expand to more platforms (Microsoft 365 Copilot, GitHub, Visual Studio, JetBrains, and other Copilot surfaces). Plus advanced process mining, cross-workspace skills, anonymized team aggregation, enterprise knowledge graphs, skill versioning, approval governance, Copilot SDK, and permissioned MCP integration. Full plan: [`docs/roadmap.md`](docs/roadmap.md).
 
 ## Contributing
 
