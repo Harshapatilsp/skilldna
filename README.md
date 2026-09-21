@@ -1,128 +1,154 @@
 # SkillDNA
 
-**SkillDNA does not simply create skills. It discovers which workflows are worth turning into skills.**
+**A local-first VS Code extension that turns your repeated Copilot work into reusable, reviewable skills.**
 
-SkillDNA learns how experts work with Copilot and turns repeated, user-approved workflows into reusable intelligence.
+SkillDNA does not simply create skills. It discovers which workflows are worth turning into skills. Core analysis and generation run entirely on your machine.
 
-Prompts capture requests. Skills capture procedures. SkillDNA discovers the procedures people are already following.
+- **Version:** 0.1.2
+- **Platform:** VS Code 1.103+ · Windows (ARM64 verified)
+- **Runtime:** Node.js 22.12+ / current LTS
+- **License:** All rights reserved (see [License](#license))
 
-## Problem and solution
+---
 
-Useful multi-step procedures disappear across separate investigations and development sessions. SkillDNA turns approved normalized activity into explainable workflow candidates, recommends the appropriate reusable artifact, and generates reviewable project-scoped Copilot Agent Skills. It is not a chatbot, prompt library, or marketplace.
+## Why SkillDNA
 
-The local loop is **Observe > Normalize > Detect > Explain > Recommend > Generate > Review > Export**. Core analysis and generation require no cloud service. Optional, separately consented Copilot suitability review sends minimized approved summaries to the selected model provider. No telemetry, automatic history scanning, or automatic script execution is included.
+Prompts capture requests. Skills capture procedures. Between them, your team's useful *methods* keep getting rebuilt from scratch — one chat at a time. SkillDNA watches how you actually work, finds the repeatable steps, and turns them into project-scoped Copilot skills you can review, edit, and share.
 
-[Workflow explorer screenshot](docs/screenshots/workflows-1440.png)
+The loop is: **Observe → Normalize → Detect → Explain → Recommend → Generate → Review → Export.** Nothing leaves your machine unless you enable the optional Copilot review, and even then only categorical evidence is sent.
 
-## Features
+## Highlights
 
-- 25 synthetic sessions across support investigation, developer failure investigation, and incident response.
-- Default-off consent, in-memory normalized previews, per-session approval/exclusion, deletion, retention, and data export.
-- Explicit JSON/JSONL adapter, approved file/task/debug metadata, and an owned `@skilldna` chat participant.
-- Frequent contiguous sequences, similarity clusters, stable/optional steps, entry/exit evidence, and transparent heuristic scores.
-- Recommendations for skills, prompts, agents, tools, manual work, or additional evidence.
-- Optional background Copilot suitability opinions, with missing-evidence and risk explanations kept separate from local recommendations.
-- Editable skill sections/files, Markdown preview, YAML/privacy validation, Mermaid graph, and result template.
-- Review acknowledgement and native destination confirmation before project-scoped skill export.
-- Activity Bar entry, status indicator, Command Palette commands, and categorical local feedback.
+- **Local-first discovery.** Mines your approved sessions on your own hardware. No telemetry, no automatic history scans, no background script execution.
+- **Explicit consent.** Default-off observation, per-session approval, retention windows, and native OS confirmations before writing or exporting.
+- **Transparent scoring.** Every workflow candidate shows its frequency, stable and optional steps, entry/exit evidence, and heuristic scores.
+- **Reviewable skill drafts.** Generates instructions, a Mermaid workflow diagram, and a result template — all editable, YAML- and privacy-validated before export.
+- **Optional Copilot review.** Opt-in AI second opinion on which workflows are strong enough to become team-ready skills. Runs asynchronously and never overrides local recommendations.
+- **Owned integration surface.** Activity Bar entry, status indicator, dashboard webview, Command Palette commands, and a `@skilldna` chat participant.
 
-## Setup and run
+## Requirements
 
-Use Node.js 22.12+ or a current supported LTS, npm, and VS Code 1.103+. Verified on Windows ARM64. The extension does not require Copilot for mining or generation. Optional Copilot review requires available model access, consent, network connectivity, and quota. Dependency installation and test-host downloads need internet; core runtime processing remains local.
+| Requirement | Version |
+| --- | --- |
+| VS Code | 1.103 or later |
+| Node.js | 22.12+ (or current supported LTS) |
+| npm | Bundled with Node |
+| OS | Windows (ARM64 verified). Other platforms untested. |
+| GitHub Copilot | Not required for mining or generation. Required only for optional AI review. |
 
-```sh
+Dependency installation and the test-host download need internet; runtime analysis stays local.
+
+## Install
+
+### From source (recommended for now)
+
+```powershell
+git clone https://github.com/Harshapatilsp/skilldna.git
+cd skilldna
 npm ci
 npm run build
 ```
 
-Press **F5** with **Run Extension** selected. The build task builds both host and webview. In the Extension Development Host, open a local scratch workspace and run **SkillDNA: Open Dashboard**.
+Press <kbd>F5</kbd> with **Run Extension** selected to launch the Extension Development Host, then run **SkillDNA: Open Dashboard**.
 
-Run `npm run package` for an installable VSIX, then use **Extensions: Install from VSIX**. This is a local hackathon package, not a Marketplace publication.
+### From a packaged VSIX
 
-Run `npm run dev` for the synthetic-only browser preview at <http://127.0.0.1:5173>. The preview uses memory only and cannot import real data, observe VS Code, or export files.
+```powershell
+npm run package
+code --install-extension skilldna-0.1.2.vsix
+```
 
-## Demo
+The extension is not published to the VS Code Marketplace.
 
-On first activation, SkillDNA offers **Import previous sessions**, **Try synthetic demo**, or **Not now**. The invitation is shown once per VS Code profile. The import action remains available in the dashboard and Command Palette afterward.
+### Browser preview (synthetic data only)
 
-### Install to discovery
+```powershell
+npm run dev
+```
 
-1. Choose **Import previous sessions** in a trusted workspace and approve the native consent notice.
-2. In **Analyze my previous Copilot sessions**, choose **Preview Sessions** or **Analyze**, then choose a folder or session files. The picker starts at `%APPDATA%\Code\User\workspaceStorage`. Only workspace identifiers and direct `<hash>/chatSessions/*.json` or `*.jsonl` files in the selected scope are read.
-3. Review **Found N sessions**, exclude unwanted sessions, and choose **Approve and discover**. Until approval, normalized sessions remain in memory only.
-4. See actual session counts, detected workflows, and potential skills. Select a potential skill to generate its reviewable draft.
+The preview at <http://127.0.0.1:5173> uses memory only. It cannot import real data, observe VS Code, or export files. Use it to explore the UI without installing the extension.
 
-Counts are computed from the selected files and approved data, never hard-coded to a demo claim. A small or unrelated dataset may produce no recommendations. **Try discovery demo** runs the 25-session synthetic dataset through analysis in one action, with synthetic provenance shown explicitly. Import mode does not enable background observation.
+## First run
 
-**Preview Sessions** keeps results in memory for review. **Analyze** asks for approval of the discovered count before saving normalized sessions and analyzing. Cancel before scope selection reads nothing. State databases, extension state, unrelated caches, chatEditingSessions, and files outside the allowlist are never read by discovery. See [the privacy allowlist and limits](docs/privacy.md).
+1. Open a trusted workspace and run **SkillDNA: Open Dashboard**.
+2. Choose an evidence source in **Privacy**: import previous Copilot sessions, or enable VS Code activity observation.
+3. Approve and analyze. Detected workflows appear with scores and evidence.
+4. Select a candidate to generate a reviewable skill draft (instructions, workflow diagram, result template).
+5. Validate, approve, and export to `.github/skills/<skill-name>/` in your workspace.
 
-### Optional Copilot Review
+For a step-by-step walkthrough with screenshots, see [the demo guide](docs/demo.md).
 
-In **Privacy**, enable **Review workflow suitability with Copilot**, approve the native data-disclosure dialog, grant VS Code model access if prompted, and select an available Copilot model. Approved existing candidates are reviewed, and subsequent explicit **Analyze workflows** or **Approve and discover** actions start asynchronous reviews without blocking local work. Live observation alone never triggers model calls.
+## Privacy
 
-The **Copilot suitability review** section shows queued, reviewing, complete, or unavailable status, an AI opinion, reasons, missing evidence, and risks. The local recommendation is unchanged: AI review does not prove a workflow works, fill missing evidence, execute instructions, or approve export. Only categorical evidence is available to the model, so it cannot reconstruct technical details from discarded raw chats.
+SkillDNA is designed around a strict allowlist. It reads only workspace-scoped Copilot session files you point it at, keeps normalized previews in memory until you approve them, and never scans arbitrary history or executes code from generated skills. Redaction and validation run before anything is written to disk.
 
-At most ten candidates per analysis are reviewed sequentially with a 45-second timeout per request. Unchanged summaries reuse in-memory results. Disable the setting to cancel pending requests and clear reviews. Permission, model selection, and reviews reset on window restart. Deletion, evidence correction, feedback changes, and retention invalidation clear affected review state conservatively. Quota, denied access, malformed responses, and unavailable models preserve local analysis. This feature is unavailable in the synthetic browser preview.
+Full allowlist, threat model, and limitations: [`docs/privacy.md`](docs/privacy.md).
 
-### Detailed walkthrough
+## Optional Copilot review
 
-1. Open the dashboard and show observation off.
-2. Load synthetic demo data and inspect normalized sessions.
-3. Analyze workflows and select Evidence-Based Case Investigation.
-4. Inspect 12 occurrences, 9 stable steps, 3 optional paths, the blocked exit, and recommendation factors.
-5. Generate a skill draft and review/edit all three files.
-6. Validate, acknowledge review, and approve the saved draft.
-7. Export and confirm the destination under `.github/skills/<skill-name>/`. SKILL.md opens for inspection. Nothing executes.
-8. Manually test using the synthetic request shown in Skill Review and record local feedback.
+Off by default. When enabled in **Privacy**, SkillDNA can ask a Copilot model to give a suitability opinion on your approved workflow candidates.
 
-See [the complete demo guide](docs/demo.md) for import and observation demonstrations.
+- Requires explicit setting toggle, a native data-disclosure confirmation, model-access permission, and an available Copilot model.
+- Sends only categorical evidence (counts, categories, structural signals) — never file names, paths, session bodies, or IDs.
+- Runs asynchronously with a 10-candidate cap per analysis and a 45-second timeout per request. Results are cached in memory and cleared on window restart or when the setting is disabled.
+- The AI opinion is displayed separately and never overrides local scoring or approval. Local analysis is preserved when the model is unavailable, denied, over quota, or returns malformed output.
 
-## Architecture
+## Development
+
+```powershell
+npm ci
+npm run build          # host bundle + webview
+npm run watch          # continuous rebuild
+npm run lint
+npm run check-types
+npm test               # Vitest unit + integration
+npx playwright test    # Webview browser tests
+npm run test:host      # Extension-host tests in isolated profile
+```
+
+Set `VSCODE_EXECUTABLE` to reuse an installed VS Code for host tests; otherwise the runner downloads stable.
+
+## Repository layout
 
 ```text
 apps/extension/          Host, commands, webview, observation adapters
 apps/webview/            React dashboard and draft editor
-packages/domain/        Versioned contracts and message validation
-packages/application/   Shared application state transitions
-packages/adapters/      Explicit session-file parser
-packages/privacy/       Redaction, normalization, intent rules
-packages/workflow-engine/ Segmentation, mining, clustering, scoring
+packages/domain/         Versioned contracts and message validation
+packages/application/    Shared application state transitions
+packages/adapters/       Explicit session-file parser
+packages/privacy/        Redaction, normalization, intent rules
+packages/workflow-engine/ Segmentation, mining, clustering, scoring, Copilot review
 packages/skill-generator/ Generation, validation, safe export
-packages/storage/       Local JSON repository
-samples/                Synthetic workflow and import data
-tests/                  Unit, integration, browser, extension-host tests
-docs/                   Architecture, privacy, demo, roadmap, screenshots
+packages/storage/        Local JSON repository
+samples/                 Synthetic session data
+tests/                   Unit, integration, browser, extension-host tests
+docs/                    Architecture, privacy, roadmap, demo, screenshots
 ```
 
-See [architecture](docs/architecture.md), [privacy and threat model](docs/privacy.md), and [roadmap](docs/roadmap.md).
+Design notes and threat model: [`docs/architecture.md`](docs/architecture.md) · [`docs/privacy.md`](docs/privacy.md) · [`docs/roadmap.md`](docs/roadmap.md).
 
-## Testing
+## Limitations
 
-```sh
-npm test
-npm run check-types
-npm run lint
-npm run build
-npx playwright test
-npm run test:host
-```
-
-Vitest covers privacy/normalization, consent, segmentation, mining/scoring, generation/validation, storage, import, and actual temporary-directory exports. Playwright uses Microsoft Edge and checks demo behavior, approval invalidation, and desktop/mobile layouts; screenshots go to `docs/screenshots`. Select an installed browser channel in the config on other platforms.
-
-Extension-host tests use an isolated profile and check activation, default-off, command registration, and demo mining. Set `VSCODE_EXECUTABLE` to test an existing installation; otherwise the runner downloads stable VS Code. Native confirmation dialogs, actual Copilot invocation, and each metadata source also have manual checks in the demo guide; they are not claimed as fully automated coverage.
-
-## Known limitations
-
-- Discovery is an explicit, Windows-only scan of internal VS Code session storage, not an official Copilot-history API. Unsupported/malformed formats are reported as skipped. Other profiles, empty-window sessions, and arbitrary external import paths are excluded.
-- One real-data mode is active at a time. Source changes discard pending data. Observation pauses on activation.
-- Global command/terminal monitoring and model-assisted classification are not implemented. Owned chat is a local command interface, not an LLM assistant.
-- Mining is session-level edit-similarity clustering plus bounded contiguous sequences, not a full process-mining system. Explicit loop semantics and multi-workflow sessions need further work.
-- Scores and risk estimates are heuristics, not proof that automation is safe. Required inputs use conservative generic contracts.
-- Redaction cannot recognize every secret or identifier. Edited drafts require human review; local storage is not encrypted.
-- Retention runs on activation/settings changes, not continuously. Unsupported storage versions require explicit reset.
-- Existing skill directories are refused; update/overwrite workflows and remote filesystem export are deferred.
-- Generated skills include no executable scripts. Sample Copilot requests are for manual testing; execution results are never fabricated.
+- Discovery relies on Windows VS Code internal session storage, not an official Copilot history API. Unsupported or malformed formats are reported as skipped.
+- One real-data source is active at a time; source changes discard pending data.
+- Mining is session-level edit-similarity clustering plus bounded contiguous sequences — not a full process-mining system.
+- Scores are heuristics, not proof that automation is safe. Human review of every generated draft is required.
+- Redaction cannot recognize every secret or identifier. Local storage is not encrypted.
+- Existing skill directories are refused; update/overwrite and remote-filesystem export are deferred.
+- Generated skills contain no executable scripts. Sample requests are for manual testing only.
 
 ## Roadmap
 
-Official adapters when available, advanced process mining, personal cross-workspace skills, anonymized team aggregation, enterprise knowledge graphs, skill versioning/effectiveness, approval governance, Copilot SDK, and permissioned MCP integration. See [the roadmap](docs/roadmap.md).
+Official Copilot adapters when available, advanced process mining, personal cross-workspace skills, anonymized team aggregation, enterprise knowledge graphs, skill versioning and effectiveness tracking, approval governance, Copilot SDK, and permissioned MCP integration. Full plan: [`docs/roadmap.md`](docs/roadmap.md).
+
+## Contributing
+
+This is an early-stage personal project. Issues and pull requests are welcome once a contribution policy and license are in place.
+
+## License
+
+No license has been chosen yet. Until a `LICENSE` file is added, all rights are reserved. If you would like to use, extend, or redistribute the code, please open an issue first.
+
+## Changelog
+
+See [`CHANGELOG.md`](CHANGELOG.md).
