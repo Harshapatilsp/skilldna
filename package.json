@@ -1,0 +1,186 @@
+{
+  "name": "skilldna",
+  "displayName": "SkillDNA",
+  "description": "Privacy-first workflow discovery and skill generation",
+  "version": "0.1.2",
+  "publisher": "skilldna-local",
+  "engines": {
+    "vscode": "^1.103.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onChatParticipant:skilldna.assistant"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "skilldna.openDashboard",
+        "title": "SkillDNA: Open Dashboard"
+      },
+      {
+        "command": "skilldna.startObservation",
+        "title": "SkillDNA: Start Observation"
+      },
+      {
+        "command": "skilldna.pauseObservation",
+        "title": "SkillDNA: Pause Observation"
+      },
+      {
+        "command": "skilldna.resumeObservation",
+        "title": "SkillDNA: Resume Observation"
+      },
+      {
+        "command": "skilldna.importSessions",
+        "title": "SkillDNA: Import Sessions"
+      },
+      {
+        "command": "skilldna.loadDemoData",
+        "title": "SkillDNA: Load Demo Data"
+      },
+      {
+        "command": "skilldna.analyzeWorkflows",
+        "title": "SkillDNA: Analyze Workflows"
+      },
+      {
+        "command": "skilldna.showSkillCandidates",
+        "title": "SkillDNA: Show Skill Candidates"
+      },
+      {
+        "command": "skilldna.generateSkillDraft",
+        "title": "SkillDNA: Generate Skill Draft"
+      },
+      {
+        "command": "skilldna.validateSkill",
+        "title": "SkillDNA: Validate Skill"
+      },
+      {
+        "command": "skilldna.exportSkill",
+        "title": "SkillDNA: Export Skill"
+      },
+      {
+        "command": "skilldna.openPrivacyCenter",
+        "title": "SkillDNA: Open Privacy Center"
+      },
+      {
+        "command": "skilldna.viewConsentSettings",
+        "title": "SkillDNA: View Consent Settings"
+      },
+      {
+        "command": "skilldna.exportMyData",
+        "title": "SkillDNA: Export My Data"
+      },
+      {
+        "command": "skilldna.deleteAllData",
+        "title": "SkillDNA: Delete All Data"
+      },
+      {
+        "command": "skilldna.startSession",
+        "title": "SkillDNA: Start Session"
+      },
+      {
+        "command": "skilldna.stopSession",
+        "title": "SkillDNA: Stop Session"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "skilldna",
+          "title": "SkillDNA",
+          "icon": "media/skilldna.svg"
+        }
+      ]
+    },
+    "views": {
+      "skilldna": [
+        {
+          "id": "skilldna.home",
+          "name": "SkillDNA"
+        }
+      ]
+    },
+    "chatParticipants": [
+      {
+        "id": "skilldna.assistant",
+        "name": "skilldna",
+        "fullName": "SkillDNA",
+        "description": "Local workflow discovery using approved normalized events only",
+        "isSticky": true,
+        "commands": [
+          {
+            "name": "analyze",
+            "description": "Analyze approved normalized sessions"
+          },
+          {
+            "name": "candidates",
+            "description": "Show detected workflow candidates"
+          },
+          {
+            "name": "explain",
+            "description": "Explain the leading recommendation"
+          },
+          {
+            "name": "generate",
+            "description": "Generate a reviewable draft"
+          },
+          {
+            "name": "validate",
+            "description": "Validate the latest saved draft"
+          }
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "compile": "npm run build",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "vsce package --no-dependencies --allow-missing-repository --no-rewrite-relative-links --skip-license",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint apps packages samples tests",
+    "test": "vitest run",
+    "build": "npm run check-types && node esbuild.js && vite build",
+    "dev": "vite --host 127.0.0.1",
+    "format": "prettier --write apps packages samples tests docs *.json *.md *.mts *.mjs",
+    "test:host": "node scripts/test-host.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@types/vscode": "^1.103.0",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0",
+    "@vscode/vsce": "^3.9.2",
+    "esbuild": "^0.28.1",
+    "eslint": "^10.5.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.9.6",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.61.1",
+    "vite": "^8.2.2",
+    "vitest": "^5.0.0"
+  },
+  "overrides": {
+    "diff": "^8.0.4",
+    "serialize-javascript": "^7.0.6"
+  },
+  "dependencies": {
+    "lucide-react": "^1.41.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-markdown": "^10.1.0",
+    "yaml": "^2.9.0",
+    "zod": "^4.5.4"
+  }
+}

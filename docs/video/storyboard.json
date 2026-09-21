@@ -1,0 +1,98 @@
+[
+  {
+    "id": "problem",
+    "chapter": "PROBLEM",
+    "duration": 8,
+    "title": "SkillDNA",
+    "subtitle": "Your team solved this. Why start from zero?",
+    "narration": "Your team keeps solving the same problem, but the method never sticks. Every new chat starts over."
+  },
+  {
+    "id": "early-demo",
+    "chapter": "PROBLEM",
+    "duration": 9,
+    "title": "Expertise gets buried. The cost repeats.",
+    "subtitle": "Repeated context / Repeated corrections / Repeated tokens",
+    "narration": "Repeated context, repeated corrections, wasted tokens. Expertise stays buried in old chats."
+  },
+  {
+    "id": "idea",
+    "chapter": "IDEA",
+    "duration": 10,
+    "title": "Keep the method, not just the conversation.",
+    "subtitle": "SkillDNA / A local-first VS Code extension",
+    "narration": "SkillDNA is a VS Code extension. It analyzes your approved sessions and turns repeated steps into a reusable Copilot skill."
+  },
+  {
+    "id": "privacy",
+    "chapter": "IDEA",
+    "duration": 8,
+    "title": "One reviewed process. A head start for the team.",
+    "subtitle": "Local-first / You approve / Optional Copilot review",
+    "narration": "You choose what it sees. Sessions and files stay local. Nothing leaves your machine without approval."
+  },
+  {
+    "id": "sessions",
+    "chapter": "DEMO",
+    "duration": 8,
+    "title": "1. Privacy: choose how to discover workflows",
+    "subtitle": "Real VS Code extension / Isolated synthetic demo",
+    "narration": "In Privacy, choose imported sessions or VS Code activity. First, import."
+  },
+  {
+    "id": "workflows",
+    "chapter": "DEMO",
+    "duration": 9,
+    "title": "2. Import quickly. Review what matters.",
+    "subtitle": "Pick a workspace and sample size / Synthetic session files",
+    "narration": "Give permission, choose a workspace and sample. Here are the sessions. Review and approve before discovery."
+  },
+  {
+    "id": "steps",
+    "chapter": "DEMO",
+    "duration": 10,
+    "title": "3. Observe new work, with permission",
+    "subtitle": "Enable VS Code activity / Open and save a sample file",
+    "narration": "Choose VS Code activity in Privacy. Enable observation, then open and save a file."
+  },
+  {
+    "id": "generate",
+    "chapter": "DEMO",
+    "duration": 13,
+    "title": "4. Verify observation against what just happened",
+    "subtitle": "Activity categories, not file contents / Review before saving",
+    "narration": "Pause and check Sessions. Inspect and edit match the file we opened and saved. That's how we check the capture. Approve the evidence, then review a workflow."
+  },
+  {
+    "id": "files",
+    "chapter": "DEMO",
+    "duration": 10,
+    "title": "5. Turn the workflow into a skill",
+    "subtitle": "Editable instructions + a consistent result template",
+    "narration": "Generate a skill draft. Review the instructions and result template. Edit anything that needs improving."
+  },
+  {
+    "id": "approve",
+    "chapter": "DEMO",
+    "duration": 10,
+    "title": "6. Check it. Approve it. Reuse it.",
+    "subtitle": "Validated and approved / Export stays under your control",
+    "narration": "Validate the files, then approve the draft. It's ready for export and reuse. You're in control."
+  },
+  {
+    "id": "impact",
+    "chapter": "IMPACT",
+    "duration": 12,
+    "title": "Stop paying to rediscover the same process.",
+    "subtitle": "Reuse instructions / Optional Copilot review / Team-ready skills",
+    "narration": "Ship the method, not just the answer. Reuse instructions across chats. Copilot can review each workflow, so only the strongest reach your team."
+  },
+  {
+    "id": "close",
+    "chapter": "IMPACT",
+    "duration": 11,
+    "title": "SkillDNA",
+    "subtitle": "Capture the method. Share the skill. Move forward together.",
+    "narration": "Skill DNA. Capture the method. Share the skill. Move forward together."
+  }
+]

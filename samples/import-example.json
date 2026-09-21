@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "sessions": [
+    {
+      "id": "synthetic-import-1",
+      "events": [
+        { "action": "review", "intent": "review-issue-context" },
+        { "action": "inspect", "intent": "analyze-diagnostic-data", "resource": "log" },
+        { "action": "analyze", "intent": "identify-root-cause" },
+        { "action": "generate", "intent": "generate-rca" }
+      ]
+    },
+    {
+      "id": "synthetic-import-2",
+      "events": [
+        { "action": "review", "intent": "review-issue-context" },
+        { "action": "inspect", "intent": "analyze-diagnostic-data", "resource": "log" },
+        { "action": "analyze", "intent": "identify-root-cause" },
+        { "action": "generate", "intent": "generate-rca" }
+      ]
+    },
+    {
+      "id": "synthetic-import-3",
+      "events": [
+        { "action": "review", "intent": "review-issue-context" },
+        { "action": "inspect", "intent": "analyze-diagnostic-data", "resource": "log" },
+        { "action": "analyze", "intent": "identify-root-cause" },
+        { "action": "generate", "intent": "generate-rca" }
+      ]
+    }
+  ]
+}
