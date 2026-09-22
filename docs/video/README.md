@@ -48,15 +48,17 @@ At 0:29.4-0:31, the actual captured dropdown screenshot replaces the correspondi
 
 ## Reproduce
 
-Run from the repository root with dependencies installed, Microsoft Edge, Windows SAPI, and Playwright's recording binary (`npx playwright install ffmpeg`). Start the preview with `npm run dev -- --port 5176 --strictPort`.
+Run from the repository root with dependencies installed, Microsoft Edge, and Playwright's recording binary (`npx playwright install ffmpeg`). Narration uses Microsoft Edge neural voices via `msedge-tts` (no API key). Start the preview with `npm run dev -- --port 5176 --strictPort`.
 
 ```powershell
-./scripts/narrate-demo.ps1
+node scripts/narrate-demo.mjs
 node scripts/record-native-demo.mjs
 node scripts/record-native-demo.mjs --record
 node scripts/record-demo.mjs --check
 node scripts/record-demo.mjs --render
 ```
+
+Override the voice or prosody with `NARRATOR_VOICE`, `NARRATOR_RATE`, and `NARRATOR_PITCH` environment variables. Default voice is `en-US-AndrewMultilingualNeural`.
 
 Native recording uses the cached VS Code executable at `.vscode-test/vscode-win32-arm64-archive-1.137.0/Code.exe` and the existing built extension bundle. Rendering requires FFmpeg with H.264/AAC and VP9/Opus support. Set `FFMPEG_PATH` to an existing executable, or use the temporary encoder installed for this recording at `%TEMP%/skilldna-video-tools/package/ffmpeg.exe`. No encoder dependency was added to the extension. Intermediate screenshots, narration, and raw footage are in `render/`.
 

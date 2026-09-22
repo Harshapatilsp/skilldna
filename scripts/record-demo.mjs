@@ -147,7 +147,7 @@ if (mode === '--render') {
     '-metadata:s:s:0', 'title=English captions',
     '-t', String(duration), '-movflags', '+faststart',
     '-metadata', 'title=SkillDNA | Capture the method. Share the skill. Move forward together.',
-    '-metadata', 'comment=Real VS Code extension in isolated development host with synthetic import files; offline David narration; benefits unmeasured.',
+    '-metadata', 'comment=Real VS Code extension in isolated development host with synthetic import files; Edge neural narration; benefits unmeasured.',
     voicedVideo]);
   console.log('Rendered narrated MP4 with visible captions and an English subtitle track.');
   encode(['-i', voicedVideo, '-map', '0:v:0', '-map', '0:a:0',

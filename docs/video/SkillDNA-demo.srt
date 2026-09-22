@@ -1,131 +1,131 @@
 1
-00:00:00,000 --> 00:00:05,124
+00:00:00,000 --> 00:00:04,608
 Your team keeps solving the same problem, but the method never sticks.
 
 2
-00:00:05,124 --> 00:00:07,258
+00:00:04,608 --> 00:00:06,528
 Every new chat starts over.
 
 3
-00:00:08,000 --> 00:00:12,109
+00:00:08,000 --> 00:00:11,816
 Repeated context, repeated corrections, wasted tokens.
 
 4
-00:00:12,109 --> 00:00:16,218
+00:00:11,816 --> 00:00:15,632
 Expertise stays buried in old chats.
 
 5
-00:00:17,000 --> 00:00:19,810
+00:00:17,000 --> 00:00:19,779
 SkillDNA is a VS Code extension.
 
 6
-00:00:19,810 --> 00:00:26,368
+00:00:19,779 --> 00:00:26,264
 It analyzes your approved sessions and turns repeated steps into a reusable Copilot skill.
 
 7
-00:00:27,000 --> 00:00:29,428
+00:00:27,000 --> 00:00:29,047
 You choose what it sees.
 
 8
-00:00:29,428 --> 00:00:31,855
+00:00:29,047 --> 00:00:31,095
 Sessions and files stay local.
 
 9
-00:00:31,855 --> 00:00:34,768
+00:00:31,095 --> 00:00:33,552
 Nothing leaves your machine without approval.
 
 10
-00:00:35,000 --> 00:00:40,894
+00:00:35,000 --> 00:00:39,988
 In Privacy, choose imported sessions or VS Code activity.
 
 11
-00:00:40,894 --> 00:00:42,203
+00:00:39,988 --> 00:00:41,096
 First, import.
 
 12
-00:00:43,000 --> 00:00:46,768
+00:00:43,000 --> 00:00:46,181
 Give permission, choose a workspace and sample.
 
 13
-00:00:46,768 --> 00:00:48,922
+00:00:46,181 --> 00:00:47,999
 Here are the sessions.
 
 14
-00:00:48,922 --> 00:00:51,613
+00:00:47,999 --> 00:00:50,272
 Review and approve before discovery.
 
 15
-00:00:52,000 --> 00:00:55,089
+00:00:52,000 --> 00:00:54,829
 Choose VS Code activity in Privacy.
 
 16
-00:00:55,089 --> 00:00:59,209
+00:00:54,829 --> 00:00:58,600
 Enable observation, then open and save a file.
 
 17
-00:01:02,000 --> 00:01:03,762
+00:01:02,000 --> 00:01:03,536
 Pause and check Sessions.
 
 18
-00:01:03,762 --> 00:01:08,167
+00:01:03,536 --> 00:01:07,376
 Inspect and edit match the file we opened and saved.
 
 19
-00:01:08,167 --> 00:01:10,809
+00:01:07,376 --> 00:01:09,680
 That's how we check the capture.
 
 20
-00:01:10,809 --> 00:01:13,893
+00:01:09,680 --> 00:01:12,368
 Approve the evidence, then review a workflow.
 
 21
-00:01:15,000 --> 00:01:17,129
+00:01:15,000 --> 00:01:16,894
 Generate a skill draft.
 
 22
-00:01:17,129 --> 00:01:20,322
+00:01:16,894 --> 00:01:19,736
 Review the instructions and result template.
 
 23
-00:01:20,322 --> 00:01:22,983
+00:01:19,736 --> 00:01:22,104
 Edit anything that needs improving.
 
 24
-00:01:25,000 --> 00:01:28,580
+00:01:25,000 --> 00:01:27,930
 Validate the files, then approve the draft.
 
 25
-00:01:28,580 --> 00:01:31,649
+00:01:27,930 --> 00:01:30,441
 It's ready for export and reuse.
 
 26
-00:01:31,649 --> 00:01:33,183
+00:01:30,441 --> 00:01:31,696
 You're in control.
 
 27
-00:01:35,000 --> 00:01:38,472
+00:01:35,000 --> 00:01:38,104
 Ship the method, not just the answer.
 
 28
-00:01:38,472 --> 00:01:40,456
+00:01:38,104 --> 00:01:39,878
 Reuse instructions across chats.
 
 29
-00:01:40,456 --> 00:01:46,408
+00:01:39,878 --> 00:01:45,200
 Copilot can review each workflow, so only the strongest reach your team.
 
 30
-00:01:47,000 --> 00:01:48,331
+00:01:47,000 --> 00:01:47,929
 Skill DNA.
 
 31
-00:01:48,331 --> 00:01:50,327
+00:01:47,929 --> 00:01:49,324
 Capture the method.
 
 32
-00:01:50,327 --> 00:01:52,323
+00:01:49,324 --> 00:01:50,718
 Share the skill.
 
 33
-00:01:52,323 --> 00:01:54,319
+00:01:50,718 --> 00:01:52,112
 Move forward together.
